@@ -1,11 +1,11 @@
 # ReactNativeTips
 
 ## 1. loadMore FlatList in ScrollView
-make a state onEndReach with boolean type.
+make a state endReach with boolean type.
 
 in ScrollView, use onScroll nativeEvent to measure the position of the shown layout.
 
-update onEndReach to true when closing to end of the layout, and update again onEndReach to false when away from the end of the layout.
+update endReach to true when closing to end of the layout, and update again endReach to false when away from the end of the layout.
 
 if you are using regular ScrollView, use onScroll like this : 
 ```
@@ -13,9 +13,9 @@ onScroll={(e) => {
   const { layoutMeasurement, contentOffset, contentSize } = e.nativeEvent
   const paddingToright = 20;
   if (layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToright) {
-    setOnEndReach(true)
+    setEndReach(true)
   } else {
-    setOnEndReach(false)
+    setEndReach(false)
   }
 }}
 ```
@@ -30,13 +30,13 @@ onScroll={Animated.event(
       const { layoutMeasurement, contentOffset, contentSize } = e.nativeEvent
       const paddingToright = 20;
       if (layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToright) {
-        setOnEndReach(true)
+        setEndReach(true)
       } else {
-        setOnEndReach(false)
+        setEndReach(false)
       }
     }
   }
 )}
 ```
 
-and now use the onEndReach to trigger loadMore in FlatList
+and now use the endReach to trigger loadMore in FlatList
