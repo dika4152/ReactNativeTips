@@ -1,4 +1,5 @@
 # ReactNativeTips
+Feel free to add more tips in React Native Development to help React Native Developer
 
 ## 1. loadMore FlatList in ScrollView
 make a state endReach with boolean type.
